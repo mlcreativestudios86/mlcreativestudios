@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Creative Studios — Wedding Photography</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --charcoal: #1C1C1A;
+    --warm-gray: #8A8478;
+    --gold: #B8965A;
+    --gold-light: #D4AF7A;
+    --deep: #0E0D0B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: var(--deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(184,150,90,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 80% at 20% 80%, rgba(184,150,90,0.06) 0%, transparent 60%),
+      linear-gradient(160deg, #0E0D0B 0%, #1a1814 50%, #0E0D0B 100%);
+  }
+
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .hero-rule-left {
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.4;
+  }
+
+  .hero-rule-right {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 24px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    animation: fadeUp 1.2s 0.1s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 8px;
+    animation: fadeUp 1.2s 0.2s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(18px, 2.5vw, 26px);
+    color: rgba(245,240,232,0.55);
+    margin-bottom: 48px;
+    animation: fadeUp 1.2s 0.3s ease both;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 52px;
+    border: 1px solid var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+    animation: fadeUp 1.2s 0.4s ease both;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+
+  .hero-cta:hover::before { transform: scaleX(1); }
+  .hero-cta:hover { color: var(--deep); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245,240,232,0.3);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(184,150,90,0.5), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(14,13,11,0.7), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .nav-cta {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .nav-cta:hover { border-bottom-color: var(--gold); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 24px; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--cream);
+    padding: 100px 24px;
+  }
+
+  .intro-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .intro-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #4a4740;
+    margin-bottom: 20px;
+  }
+
+  .intro-text p:first-of-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--charcoal);
+  }
+
+  .intro-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(184,150,90,0.15);
+  }
+
+  .stat-block {
+    background: var(--warm-white);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    background: var(--warm-white);
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 72px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(184,150,90,0.12);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    padding: 56px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 40px; right: 40px;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover { background: var(--cream); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: rgba(184,150,90,0.12);
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--warm-gray);
+    margin-bottom: 24px;
+  }
+
+  .service-includes {
+    list-style: none;
+    font-size: 13px;
+    color: var(--warm-gray);
+  }
+
+  .service-includes li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(184,150,90,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .service-includes li::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── PACKAGES ── */
+  .packages {
+    background: var(--deep);
+    color: var(--cream);
+  }
+
+  .packages-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 72px;
+  }
+
+  .packages-header .section-title { color: var(--cream); }
+
+  .packages-header p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.55);
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(184,150,90,0.15);
+    max-width: 1100px;
+    margin: 0 auto 60px;
+  }
+
+  .package-card {
+    background: #161410;
+    padding: 52px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .package-card.featured {
+    background: #1e1b16;
+    outline: 1px solid rgba(184,150,90,0.3);
+  }
+
+  .package-card.featured .package-badge {
+    display: block;
+  }
+
+  .package-badge {
+    display: none;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .package-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .package-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--gold);
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .package-price-note {
+    font-size: 12px;
+    color: rgba(245,240,232,0.35);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+
+  .package-features {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .package-features li {
+    font-size: 13px;
+    color: rgba(245,240,232,0.65);
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .package-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+
+  .package-btn {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border: 1px solid rgba(184,150,90,0.4);
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .package-btn:hover, .featured .package-btn {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--deep);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    background: var(--cream);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(184,150,90,0.12);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    background: var(--warm-white);
+    padding: 52px 48px;
+  }
+
+  .testimonial-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 0.8;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+  }
+
+  .testimonial-author {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .testimonial-venue {
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 120px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(184,150,90,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    color: rgba(245,240,232,0.5);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 18px 60px;
+    background: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--deep);
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-secondary {
+    padding: 18px 60px;
+    border: 1px solid rgba(245,240,232,0.25);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    transition: border-color 0.3s;
+  }
+
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── FAQ ── */
+  .faq {
+    background: var(--warm-white);
+  }
+
+  .faq-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(184,150,90,0.2);
+    padding: 28px 0;
+  }
+
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq-q span { color: var(--gold); font-size: 18px; }
+
+  .faq-a {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--warm-gray);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    padding: 60px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-logo span {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(245,240,232,0.25);
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 32px;
+    padding-top: 32px;
+  }
+
+  /* ── PROCESS ── */
+  .process {
+    background: var(--cream);
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), var(--gold), transparent);
+    opacity: 0.3;
+  }
+
+  .process-step {
+    padding: 0 32px;
+    text-align: center;
+  }
+
+  .process-num {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(184,150,90,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--gold);
+    background: var(--cream);
+    position: relative;
+    z-index: 1;
+  }
+
+  .process-step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .process-step-desc {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--warm-gray);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .hero-rule-left, .hero-rule-right { display: none; }
+    .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .process-steps::before { display: none; }
+    .intro-stats { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ML <span>Creative</span> Studios</a>
+  <a href="#contact" class="nav-cta">Book a Consultation</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-rule-left"></div>
+  <div class="hero-rule-right"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">New Jersey & New York Wedding Photography</p>
+    <h1 class="hero-title">Your Story,<br><em>Beautifully</em><br>Told.</h1>
+    <p class="hero-subtitle">Fine art wedding photography for couples<br>who believe love deserves to be remembered.</p>
+    <a href="#contact" class="hero-cta">Reserve Your Date</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-text">
+      <span class="section-label">About Murali</span>
+      <h2 class="section-title">Photography That<br><em>Moves</em> You</h2>
+      <p>Your wedding day holds moments that last a single breath — the way he looks at you before the ceremony, the tears your mother tries to hide, the unguarded laughter at golden hour. I'm here to capture all of it.</p>
+      <p>I'm Murali — a fine art wedding photographer based in New Jersey, serving couples across the tri-state area and beyond. My approach blends cinematic storytelling with intimate portraiture, creating images that don't just document a day — they take you back to it.</p>
+      <p style="margin-top:32px;">
+        <a href="#contact" style="color:var(--gold);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px;">Start the Conversation →</a>
+      </p>
+    </div>
+    <div class="intro-stats">
+      <div class="stat-block">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Weddings Captured</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">NJ/NY</div>
+        <div class="stat-label">Home Market</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">5-Star Reviews</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Stories Told</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Coverage for<br><em>Every</em> Kind of Love</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3 class="service-name">Full Wedding Day</h3>
+        <p class="service-desc">Complete coverage from getting ready through the last dance. Your story, all of it, beautifully preserved.</p>
+        <ul class="service-includes">
+          <li>8–12 hours of coverage</li>
+          <li>Two photographers</li>
+          <li>Online gallery (500+ images)</li>
+          <li>Print-ready high-res files</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3 class="service-name">Engagement Session</h3>
+        <p class="service-desc">An intimate session to celebrate your love story before the big day — and get comfortable in front of the lens.</p>
+        <ul class="service-includes">
+          <li>2 hours at your chosen location</li>
+          <li>75+ edited images</li>
+          <li>Great for save-the-dates</li>
+          <li>Includes style consultation</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3 class="service-name">Elopement & Intimate</h3>
+        <p class="service-desc">For couples who want something small, meaningful, and entirely their own. No less beautiful — just more you.</p>
+        <ul class="service-includes">
+          <li>Up to 4 hours coverage</li>
+          <li>Ideal for 2–30 guests</li>
+          <li>150+ edited images</li>
+          <li>Destination options available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages">
+  <div class="container">
+    <div class="packages-header">
+      <span class="section-label">Investment</span>
+      <h2 class="section-title">Transparent<br><em>Pricing</em></h2>
+      <p>Every package includes full editing, an online gallery, and high-resolution files delivered within 6 weeks. No hidden fees.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card">
+        <span class="package-badge">Essentials</span>
+        <div class="package-name">Essentials</div>
+        <div class="package-price">$3,500</div>
+        <div class="package-price-note">Perfect starting point</div>
+        <ul class="package-features">
+          <li>8 hours of coverage</li>
+          <li>One photographer</li>
+          <li>300+ edited images</li>
+          <li>Online private gallery</li>
+          <li>High-res digital files</li>
+          <li>Engagement session add-on available</li>
+        </ul>
+        <a href="#contact" class="package-btn">Inquire Now</a>
+      </div>
+      <div class="package-card featured">
+        <span class="package-badge">Most Popular</span>
+        <div class="package-name">Signature</div>
+        <div class="package-price">$5,500</div>
+        <div class="package-price-note">Our most popular choice</div>
+        <ul class="package-features">
+          <li>10 hours of coverage</li>
+          <li>Two photographers</li>
+          <li>500+ edited images</li>
+          <li>Engagement session included</li>
+          <li>Online private gallery</li>
+          <li>High-res + web-optimized files</li>
+          <li>Priority 4-week delivery</li>
+        </ul>
+        <a href="#contact" class="package-btn">Inquire Now</a>
+      </div>
+      <div class="package-card">
+        <span class="package-badge">Legacy</span>
+        <div class="package-name">Legacy</div>
+        <div class="package-price">$8,500</div>
+        <div class="package-price-note">The full experience</div>
+        <ul class="package-features">
+          <li>12 hours of coverage</li>
+          <li>Two photographers</li>
+          <li>700+ edited images</li>
+          <li>Engagement session included</li>
+          <li>Fine art print album (30 pages)</li>
+          <li>Wall art consultation</li>
+          <li>Rush 3-week delivery</li>
+        </ul>
+        <a href="#contact" class="package-btn">Inquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="process-header">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">From <em>First Message</em><br>to Forever</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h3 class="process-step-title">Say Hello</h3>
+        <p class="process-step-desc">Fill out the inquiry form and tell me about your wedding vision, date, and venue.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h3 class="process-step-title">Free Consultation</h3>
+        <p class="process-step-desc">We meet over Zoom or coffee to make sure we're the right fit before anything is signed.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h3 class="process-step-title">Reserve Your Date</h3>
+        <p class="process-step-desc">A signed contract and retainer secures your date on my calendar. That's it.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <h3 class="process-step-title">Relive It Forever</h3>
+        <p class="process-step-desc">Your gallery arrives within 6 weeks — images that make you feel it all over again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label">Kind Words</span>
+      <h2 class="section-title">What Couples<br><em>Say</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-text">Murali has an extraordinary ability to disappear into the background while capturing the most genuine, emotional moments. When our gallery arrived, my mom cried looking at photos she didn't even know were being taken.</p>
+        <div class="testimonial-author">Sarah & James T.</div>
+        <div class="testimonial-venue">The Park Savoy, NJ · June 2024</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-text">We were nervous about photography because we're not "photo people" — but Murali made everything so natural. The golden hour portraits are literally hanging in our living room. Worth every penny.</p>
+        <div class="testimonial-author">Emily & Connor W.</div>
+        <div class="testimonial-venue">Liberty House, Jersey City · October 2024</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-text">The attention to detail, the lighting knowledge, the calm presence on a chaotic day — Murali is a true professional. We've recommended him to three friends already.</p>
+        <div class="testimonial-author">Rachel & Mike O.</div>
+        <div class="testimonial-venue">Ashford Estate, NJ · April 2024</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-text">I came across ML Creative Studios on Instagram and booked without meeting in person — best decision we made. The images are cinematic, emotional, and better than anything I had imagined.</p>
+        <div class="testimonial-author">Lauren & David K.</div>
+        <div class="testimonial-venue">Battello, Jersey City · September 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <span class="section-label">Questions</span>
+      <h2 class="section-title">You Asked,<br><em>We Answered</em></h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How far in advance should we book? <span>+</span></div>
+      <p class="faq-a">Most couples book 9–12 months in advance, especially for peak season (May–October). If your date is sooner, reach out — we can often accommodate.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you travel outside of New Jersey? <span>+</span></div>
+      <p class="faq-a">Absolutely. We regularly cover weddings across New York, Connecticut, and Pennsylvania. Destination weddings are available — contact us for travel rates.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How many photos will we receive? <span>+</span></div>
+      <p class="faq-a">Depending on your package, you'll receive between 300 and 700+ fully edited, high-resolution images delivered via private online gallery.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is your editing style? <span>+</span></div>
+      <p class="faq-a">Cinematic and timeless — warm, film-inspired tones with rich contrast. We avoid heavy filters that date quickly. Your photos will look just as beautiful in 20 years.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What happens if you get sick on our wedding day? <span>+</span></div>
+      <p class="faq-a">We maintain a trusted network of professional photographers who can step in. Your wedding will always be covered — this is in every contract.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <span class="cta-eyebrow">Limited Dates Available in 2025 & 2026</span>
+  <h2 class="cta-title">Ready to <em>Reserve</em><br>Your Date?</h2>
+  <p class="cta-sub">Let's start with a no-pressure conversation. Tell us about your wedding and we'll be in touch within 24 hours.</p>
+  <div class="cta-buttons">
+    <a href="mailto:hello@mlcreativestudios.com" class="btn-primary">Book a Free Consultation</a>
+    <a href="tel:+1-555-000-0000" class="btn-secondary">Call or Text Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ML <span>Creative</span> Studios</div>
+  <ul class="footer-links">
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Packages</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 ML Creative Studios · New Jersey & New York · All rights reserved</p>
+</footer>
+
+</body>
+</html>

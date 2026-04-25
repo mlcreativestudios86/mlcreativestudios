@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Creative Studios — South Asian Wedding Photography</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-maroon: #1A0A0A;
+    --maroon: #3D1515;
+    --burgundy: #6B1C1C;
+    --saffron: #D4821A;
+    --saffron-light: #E8A84A;
+    --gold: #C9923A;
+    --gold-bright: #F0C060;
+    --ivory: #FBF5EC;
+    --warm-white: #FEF9F2;
+    --cream-dark: #F0E6D3;
+    --text-dark: #1A0A0A;
+    --text-mid: #5C3A1E;
+    --text-light: #9A7A5A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--text-dark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── PATTERN OVERLAY ── */
+  .pattern-overlay {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(201,146,58,0.08) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(26,10,10,0.85), transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ivory);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-logo span { color: var(--saffron); font-style: italic; }
+
+  .nav-cta {
+    padding: 10px 28px;
+    background: var(--saffron);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--deep-maroon);
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .nav-cta:hover { background: var(--saffron-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--deep-maroon);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 30% 50%, rgba(212,130,26,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 20%, rgba(107,28,28,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,146,58,0.08) 0%, transparent 50%),
+      linear-gradient(135deg, #1A0A0A 0%, #2a1010 40%, #1A0A0A 100%);
+  }
+
+  /* Decorative mandala-inspired circles */
+  .hero-circle-1 {
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,130,26,0.08);
+    pointer-events: none;
+  }
+
+  .hero-circle-2 {
+    position: absolute;
+    right: -50px; top: -50px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,130,26,0.12);
+    pointer-events: none;
+  }
+
+  .hero-circle-3 {
+    position: absolute;
+    right: 0px; top: 0px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,130,26,0.18);
+    pointer-events: none;
+  }
+
+  .hero-ornament-left {
+    position: absolute;
+    left: 48px; top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ornament-dot {
+    width: 4px; height: 4px;
+    background: var(--saffron);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .ornament-line {
+    width: 1px; height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(212,130,26,0.5), transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    padding: 160px 48px 100px;
+    max-width: 760px;
+    animation: fadeIn 1.4s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .hero-tag-line {
+    width: 40px; height: 1px;
+    background: var(--saffron);
+    opacity: 0.6;
+  }
+
+  .hero-tag-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--saffron);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(48px, 7vw, 86px);
+    line-height: 1.05;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--gold-bright) 50%, var(--saffron) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 22px);
+    color: rgba(251,245,236,0.5);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .hero-occasions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+
+  .hero-occasion-tag {
+    padding: 7px 18px;
+    border: 1px solid rgba(212,130,26,0.35);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: rgba(251,245,236,0.65);
+    border-radius: 0;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    padding: 16px 48px;
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--gold) 100%);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--deep-maroon);
+    text-decoration: none;
+    transition: opacity 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gold:hover { opacity: 0.9; }
+
+  .btn-outline-ivory {
+    padding: 16px 48px;
+    border: 1px solid rgba(251,245,236,0.25);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(251,245,236,0.7);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-outline-ivory:hover {
+    border-color: var(--saffron);
+    color: var(--saffron);
+  }
+
+  .hero-right-content {
+    position: absolute;
+    right: 80px; bottom: 80px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .hero-metric {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hero-metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--saffron);
+  }
+
+  .hero-metric-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(251,245,236,0.4);
+    text-align: left;
+    max-width: 80px;
+    line-height: 1.4;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 96px 24px; }
+
+  .container { max-width: 1140px; margin: 0 auto; }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow-line {
+    width: 32px; height: 1px;
+    background: var(--saffron);
+  }
+
+  .eyebrow-text {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--saffron);
+  }
+
+  .section-h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+
+  .section-h2 em {
+    font-style: italic;
+    color: var(--saffron);
+  }
+
+  /* ── OCCASIONS SECTION ── */
+  .occasions {
+    background: var(--ivory);
+    padding: 0;
+  }
+
+  .occasions-band {
+    background: var(--maroon);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .occasion-pill {
+    padding: 12px 32px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(251,245,236,0.5);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    white-space: nowrap;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+
+  .occasion-pill:last-child { border-right: none; }
+  .occasion-pill.active, .occasion-pill:hover { color: var(--saffron-light); }
+
+  .occasions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: rgba(201,146,58,0.08);
+    max-width: 1140px;
+    margin: 64px auto 0;
+    padding: 0 24px;
+  }
+
+  .occasion-card {
+    background: var(--warm-white);
+    padding: 52px 40px;
+    border: 1px solid rgba(201,146,58,0.0);
+    transition: all 0.4s;
+    position: relative;
+  }
+
+  .occasion-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: linear-gradient(to bottom, var(--saffron), var(--gold));
+    transition: height 0.4s;
+  }
+
+  .occasion-card:hover::before { height: 100%; }
+  .occasion-card:hover { background: var(--ivory); }
+
+  .occasion-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .occasion-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+  }
+
+  .occasion-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  .occasion-events {
+    list-style: none;
+    font-size: 12px;
+    color: var(--text-mid);
+  }
+
+  .occasion-events li {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .occasion-events li::before {
+    content: '◆';
+    font-size: 6px;
+    color: var(--saffron);
+  }
+
+  /* ── WHY US ── */
+  .why-us {
+    background: var(--cream-dark);
+  }
+
+  .why-us-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .why-us-left p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+
+  .why-us-left p:first-of-type {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.65;
+  }
+
+  .why-us-points {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .why-point {
+    background: var(--warm-white);
+    padding: 28px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: background 0.3s;
+  }
+
+  .why-point:hover { background: var(--ivory); }
+
+  .why-point-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .why-point-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+
+  .why-point-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  /* ── PACKAGES ── */
+  .packages {
+    background: var(--deep-maroon);
+    color: var(--ivory);
+  }
+
+  .packages-header {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 72px;
+  }
+
+  .packages-header .section-h2 { color: var(--ivory); }
+  .packages-header p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(251,245,236,0.5);
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(212,130,26,0.12);
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .pkg-card {
+    background: #220e0e;
+    padding: 52px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .pkg-card.featured {
+    background: #2d1111;
+    outline: 1px solid rgba(212,130,26,0.3);
+  }
+
+  .pkg-badge {
+    display: none;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 18px;
+    padding: 5px 12px;
+    border: 1px solid rgba(212,130,26,0.3);
+    width: fit-content;
+  }
+
+  .pkg-card.featured .pkg-badge { display: block; }
+
+  .pkg-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ivory);
+    margin-bottom: 6px;
+  }
+
+  .pkg-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    color: var(--saffron);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pkg-price-note {
+    font-size: 12px;
+    color: rgba(251,245,236,0.3);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+
+  .pkg-coverage {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    border-bottom: 1px solid rgba(212,130,26,0.3);
+    margin-bottom: 24px;
+    padding-bottom: 4px;
+  }
+
+  .pkg-features {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .pkg-features li {
+    font-size: 13px;
+    color: rgba(251,245,236,0.6);
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+  }
+
+  .pkg-features li::before {
+    content: '✦';
+    color: var(--saffron);
+    font-size: 7px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .pkg-btn {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid rgba(212,130,26,0.35);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .featured .pkg-btn, .pkg-btn:hover {
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-color: transparent;
+    color: var(--deep-maroon);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    background: var(--ivory);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(201,146,58,0.1);
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .testi-card {
+    background: var(--warm-white);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .testi-card::after {
+    content: '"';
+    position: absolute;
+    top: 24px; right: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    line-height: 1;
+    color: rgba(201,146,58,0.08);
+    pointer-events: none;
+  }
+
+  .testi-ceremony {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 16px;
+    padding: 4px 10px;
+    background: rgba(201,146,58,0.08);
+  }
+
+  .testi-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+  }
+
+  .testi-author {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .testi-detail {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  /* ── PROCESS ── */
+  .process {
+    background: var(--warm-white);
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .process-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 48px;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px; top: 8px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--saffron), rgba(201,146,58,0.1));
+    opacity: 0.4;
+  }
+
+  .process-step {
+    position: relative;
+    margin-bottom: 48px;
+    padding-left: 32px;
+  }
+
+  .process-dot {
+    position: absolute;
+    left: -39px;
+    top: 4px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--saffron);
+    border: 2px solid var(--saffron);
+    box-shadow: 0 0 0 4px rgba(212,130,26,0.12);
+  }
+
+  .process-step-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 8px;
+  }
+
+  .process-step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .process-step-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 600px;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--maroon);
+    text-align: center;
+    padding: 120px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -300px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,130,26,0.1);
+    pointer-events: none;
+  }
+
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,130,26,0.15);
+    pointer-events: none;
+  }
+
+  .cta-section .eyebrow { justify-content: center; margin-bottom: 20px; }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 5.5vw, 66px);
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 20px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--saffron), var(--gold-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    color: rgba(251,245,236,0.5);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .cta-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(251,245,236,0.35);
+    margin-bottom: 40px;
+  }
+
+  .cta-availability-dot {
+    width: 6px; height: 6px;
+    background: #5CBA47;
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    background: var(--cream-dark);
+  }
+
+  .faq-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(201,146,58,0.2);
+    padding: 28px 0;
+  }
+
+  .faq-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    line-height: 1.4;
+  }
+
+  .faq-q span {
+    color: var(--saffron);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .faq-a {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text-light);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-maroon);
+    padding: 56px 48px 40px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ivory);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-logo span { font-style: italic; color: var(--saffron); }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(251,245,236,0.35);
+    margin-top: 8px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav-group h4 {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 16px;
+  }
+
+  .footer-nav-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-group a {
+    font-size: 13px;
+    color: rgba(251,245,236,0.45);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-nav-group a:hover { color: var(--saffron); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(251,245,236,0.2);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-social a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(251,245,236,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-social a:hover { color: var(--saffron); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    .hero-content { padding: 140px 24px 80px; }
+    .hero-right-content { display: none; }
+    .hero-ornament-left { display: none; }
+    .occasions-grid { grid-template-columns: 1fr; }
+    .why-us-inner { grid-template-columns: 1fr; gap: 48px; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ML <span>Creative</span> Studios</a>
+  <a href="#contact" class="nav-cta">Book Consultation</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-circle-3"></div>
+  <div class="hero-ornament-left">
+    <div class="ornament-dot"></div>
+    <div class="ornament-line"></div>
+    <div class="ornament-dot"></div>
+    <div class="ornament-line"></div>
+    <div class="ornament-dot"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-line"></div>
+      <span class="hero-tag-text">South Asian Wedding Photography · NJ / NY</span>
+    </div>
+    <h1 class="hero-title">Every<br>Ceremony,<br><em>Magnificently</em><br>Told.</h1>
+    <p class="hero-sub">From the Mehendi to the Vidai — every ritual, every emotion, every moment of your multi-day celebration, beautifully preserved.</p>
+    <div class="hero-occasions">
+      <span class="hero-occasion-tag">Hindu Weddings</span>
+      <span class="hero-occasion-tag">Muslim Weddings</span>
+      <span class="hero-occasion-tag">Mehendi</span>
+      <span class="hero-occasion-tag">Sangeet</span>
+      <span class="hero-occasion-tag">Baraat</span>
+      <span class="hero-occasion-tag">Walima</span>
+      <span class="hero-occasion-tag">Nikah</span>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn-gold">Reserve Your Date</a>
+      <a href="#packages" class="btn-outline-ivory">View Packages</a>
+    </div>
+  </div>
+
+  <div class="hero-right-content">
+    <div class="hero-metric">
+      <div class="hero-metric-num">200+</div>
+      <div class="hero-metric-label">South Asian Weddings</div>
+    </div>
+    <div style="width:100%;height:1px;background:rgba(212,130,26,0.2);margin:12px 0;"></div>
+    <div class="hero-metric">
+      <div class="hero-metric-num">5★</div>
+      <div class="hero-metric-label">Client Reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASIONS BAND -->
+<section class="occasions">
+  <div class="occasions-band">
+    <div class="occasion-pill active">All Ceremonies</div>
+    <div class="occasion-pill">Hindu</div>
+    <div class="occasion-pill">Muslim</div>
+    <div class="occasion-pill">Mehendi</div>
+    <div class="occasion-pill">Sangeet</div>
+    <div class="occasion-pill">Reception</div>
+    <div class="occasion-pill">Destination</div>
+  </div>
+
+  <div class="occasions-grid">
+    <div class="occasion-card">
+      <span class="occasion-icon">🪔</span>
+      <h3 class="occasion-name">Hindu Weddings</h3>
+      <p class="occasion-desc">From the Haldi's golden glow to the Saat Phere around the sacred fire — every ritual documented with reverence and artistry.</p>
+      <ul class="occasion-events">
+        <li>Haldi Ceremony</li>
+        <li>Mehendi Evening</li>
+        <li>Sangeet & Garba</li>
+        <li>Baraat & Wedding Day</li>
+        <li>Reception</li>
+      </ul>
+    </div>
+    <div class="occasion-card">
+      <span class="occasion-icon">🌙</span>
+      <h3 class="occasion-name">Muslim Weddings</h3>
+      <p class="occasion-desc">The sacred beauty of the Nikah, the joy of the Walima, and every intimate moment between — captured with cultural understanding and sensitivity.</p>
+      <ul class="occasion-events">
+        <li>Mehndi Night</li>
+        <li>Nikah Ceremony</li>
+        <li>Rukhsati</li>
+        <li>Walima Reception</li>
+        <li>Family Portraits</li>
+      </ul>
+    </div>
+    <div class="occasion-card">
+      <span class="occasion-icon">🎊</span>
+      <h3 class="occasion-name">Pre-Wedding Events</h3>
+      <p class="occasion-desc">The Sangeet's energy, the Mehendi's artistry, the Haldi's warmth — standalone events deserve their own dedicated coverage.</p>
+      <ul class="occasion-events">
+        <li>Sangeet Night</li>
+        <li>Mehendi Ceremony</li>
+        <li>Engagement Party</li>
+        <li>Bridal Shower</li>
+        <li>Garba / Dandiya</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="why-us-inner">
+    <div class="why-us-left">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Why ML Creative Studios</span>
+      </div>
+      <h2 class="section-h2">We Speak Your<br><em>Culture's Language</em></h2>
+      <p>South Asian weddings aren't just celebrations — they're living stories of heritage, devotion, and family. Photographing them well means understanding what each ritual means, anticipating the moments before they happen, and knowing when to step back and when to step in.</p>
+      <p>I'm Murali — a wedding photographer based in New Jersey with deep roots in South Asian culture and over a decade of experience documenting multi-day celebrations for Hindu, Muslim, and multicultural couples across the NJ/NY metro.</p>
+      <p style="margin-top:32px;">
+        <a href="#contact" style="color:var(--saffron);font-size:12px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:500;">Let's Talk About Your Wedding <span>→</span></a>
+      </p>
+    </div>
+    <div class="why-us-points">
+      <div class="why-point">
+        <div class="why-point-icon">🧡</div>
+        <div>
+          <div class="why-point-title">Cultural Fluency</div>
+          <p class="why-point-desc">We understand the rituals, the timeline, the family dynamics, and the moments that matter most — for both Hindu and Muslim ceremonies.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">📸</div>
+        <div>
+          <div class="why-point-title">Multi-Day Coverage Experts</div>
+          <p class="why-point-desc">South Asian weddings span 3–5 days. We're built for it — no rushing, no missed moments, full presence from start to finish.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">💡</div>
+        <div>
+          <div class="why-point-title">Low-Light Masters</div>
+          <p class="why-point-desc">Banquet halls, evening ceremonies, dark mandaps — our lighting mastery ensures every image is cinematic regardless of the venue.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">👨‍👩‍👧‍👦</div>
+        <div>
+          <div class="why-point-title">Family-First Approach</div>
+          <p class="why-point-desc">We know how important family portraits are in South Asian celebrations. We manage the chaos lovingly and get every group shot you need.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="packages-header">
+      <div class="eyebrow" style="justify-content:center;">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Investment</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-h2">Packages Built for<br><em>Multi-Day</em> Celebrations</h2>
+      <p>All packages include full editing, private online gallery, and high-resolution digital files. Multi-day rates available.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="pkg-card">
+        <span class="pkg-badge">Single Day</span>
+        <div class="pkg-name">Essentials</div>
+        <div class="pkg-price">$3,500</div>
+        <div class="pkg-price-note">Single ceremony or reception</div>
+        <div class="pkg-coverage">8 Hours Coverage</div>
+        <ul class="pkg-features">
+          <li>1 photographer</li>
+          <li>300+ edited images</li>
+          <li>Private online gallery</li>
+          <li>High-res digital files</li>
+          <li>Nikah, Walima, or Wedding Day</li>
+          <li>6-week delivery</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Inquire Now</a>
+      </div>
+      <div class="pkg-card featured">
+        <span class="pkg-badge">Most Requested</span>
+        <div class="pkg-name">Signature</div>
+        <div class="pkg-price">$6,500</div>
+        <div class="pkg-price-note">2-day celebration coverage</div>
+        <div class="pkg-coverage">Up to 16 Hours · 2 Days</div>
+        <ul class="pkg-features">
+          <li>2 photographers</li>
+          <li>600+ edited images</li>
+          <li>Mehendi + Wedding Day, or Sangeet + Reception</li>
+          <li>Private online gallery</li>
+          <li>High-res & web-optimized files</li>
+          <li>Priority 4-week delivery</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Inquire Now</a>
+      </div>
+      <div class="pkg-card">
+        <span class="pkg-badge">Full Experience</span>
+        <div class="pkg-name">Legacy</div>
+        <div class="pkg-price">$10,500</div>
+        <div class="pkg-price-note">Complete multi-day coverage</div>
+        <div class="pkg-coverage">3–4 Day Full Coverage</div>
+        <ul class="pkg-features">
+          <li>2 photographers</li>
+          <li>1,000+ edited images</li>
+          <li>All ceremonies & events</li>
+          <li>Fine art print album (40 pages)</li>
+          <li>Wall art consultation</li>
+          <li>Rush 3-week delivery</li>
+          <li>Complimentary engagement session</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Inquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="eyebrow" style="justify-content:center;">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">How We Work</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-h2">Your Journey,<br><em>Step by Step</em></h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-label">Step 01</div>
+        <div class="process-step-title">Share Your Vision</div>
+        <p class="process-step-desc">Tell us about your ceremonies, dates, venues, and what matters most to you. We want to understand your full celebration — not just the wedding day.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-label">Step 02</div>
+        <div class="process-step-title">Free Consultation Call</div>
+        <p class="process-step-desc">We meet over Zoom to walk through your event schedule, discuss your cultural requirements, review your venues, and make sure we're the right fit.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-label">Step 03</div>
+        <div class="process-step-title">Custom Proposal</div>
+        <p class="process-step-desc">We send a customized package proposal based on your specific ceremonies and coverage needs. No one-size-fits-all.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-label">Step 04</div>
+        <div class="process-step-title">Reserve Your Dates</div>
+        <p class="process-step-desc">A signed contract and retainer locks in all your event dates. We then begin planning — venue scouting, timeline review, lighting assessment.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-label">Step 05</div>
+        <div class="process-step-title">Relive Every Moment</div>
+        <p class="process-step-desc">Your gallery arrives within 4–6 weeks. Every ritual, every emotion, every unscripted moment — all of it, beautifully yours forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="eyebrow" style="justify-content:center;">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Kind Words</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-h2">Families Who<br><em>Trust</em> Us</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <span class="testi-ceremony">Hindu Wedding · NJ</span>
+        <p class="testi-text">Murali understood our traditions deeply. He knew to be at the mandap before the Saat Phere began — without being told. Every ritual is documented perfectly.</p>
+        <div class="testi-author">Priya & Rahul S.</div>
+        <div class="testi-detail">3-day celebration · Edison, NJ</div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-ceremony">Muslim Wedding · NY</span>
+        <p class="testi-text">Our Nikah was intimate and sacred. Murali was respectful, unobtrusive, and still managed to capture every beautiful moment. The Walima coverage was stunning.</p>
+        <div class="testi-author">Sana & Bilal A.</div>
+        <div class="testi-detail">2-day celebration · Queens, NY</div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-ceremony">Sangeet + Reception · NJ</span>
+        <p class="testi-text">The Sangeet photos looked like they were from a Bollywood production — the lighting, the energy, the expressions. Our entire family is obsessed with the gallery.</p>
+        <div class="testi-author">Neha & Karan M.</div>
+        <div class="testi-detail">2-day celebration · Parsippany, NJ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="eyebrow" style="justify-content:center;">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Questions</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-h2">Common <em>Questions</em></h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can you cover both Hindu and Muslim ceremonies? <span>+</span></div>
+      <p class="faq-a">Yes — we have extensive experience with both Hindu multi-day celebrations and Muslim ceremonies including Mehndi, Nikah, Rukhsati, and Walima. We approach each ceremony with cultural understanding and sensitivity.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you cover multi-day weddings? <span>+</span></div>
+      <p class="faq-a">Absolutely — this is our specialty. South Asian weddings often span 3–5 days. Our packages are built around multi-day coverage with consistent photographers across all events so your gallery tells one unified story.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do you handle dark banquet halls and evening ceremonies? <span>+</span></div>
+      <p class="faq-a">We're experts in low-light and artificial lighting. Using portable LED lighting systems and professional flash setups, we ensure every image is cinematic regardless of the venue's lighting conditions.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can we book individual events (just Mehendi, just Sangeet)? <span>+</span></div>
+      <p class="faq-a">Yes. Standalone event coverage is available starting at $1,200. Many families book us for individual events first, then upgrade to full multi-day packages when they see the results.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you work with specific venues in NJ/NY for South Asian weddings? <span>+</span></div>
+      <p class="faq-a">We're familiar with the top South Asian wedding venues across New Jersey and New York — including Edison, Parsippany, Iselin, and venues in Queens and Long Island. We know the lighting challenges and best angles in most of them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-text">Let's Begin</span>
+    <div class="eyebrow-line"></div>
+  </div>
+  <h2 class="cta-title">Ready to <em>Celebrate</em><br>in Full Color?</h2>
+  <p class="cta-sub">We'd love to hear about your celebration. Tell us your dates, your ceremonies, and what matters most — and we'll get back to you within 24 hours.</p>
+  <div class="cta-availability">
+    <div class="cta-availability-dot"></div>
+    Accepting bookings for 2025 & 2026 — limited peak-season dates remaining
+  </div>
+  <div class="cta-buttons">
+    <a href="mailto:hello@mlcreativestudios.com" class="btn-gold">Book a Free Consultation</a>
+    <a href="tel:+1-555-000-0000" class="btn-outline-ivory">Call or Text Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">ML <span>Creative</span> Studios</div>
+      <div class="footer-tagline">South Asian & Multicultural Wedding Photography<br>New Jersey · New York · Destination</div>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-group">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Hindu Weddings</a></li>
+          <li><a href="#">Muslim Weddings</a></li>
+          <li><a href="#">Mehendi & Sangeet</a></li>
+          <li><a href="#">Destination Weddings</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">About Murali</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 ML Creative Studios · All rights reserved</span>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Pinterest</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
